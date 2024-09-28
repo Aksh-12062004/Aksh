@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASTAKALA Login</title>
+    <link rel="stylesheet" href="s.css">
+    <link rel="icon" href="altered_logo.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(to right, #ff6f61, #ff9153);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .login-container img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #ff6f61;
+        }
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .login-container form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .login-container form input,
+        .login-container form select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .login-container form input[type="checkbox"] {
+            margin-right: 10px;
+            width: auto;
+        }
+        .login-container form button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .login-container form button:hover {
+            background-color: #e55b4d;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+            text-align: left;
+        }
+        .login-container .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .login-container .footer a {
+            color: #ff6f61;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="altered_logo.png" alt="HASTAKALA Logo">
+        <h2>Login to HASTAKALA</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <small class="error-message" id="usernameError">Username is required</small>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <small class="error-message" id="emailError">Valid email is required</small>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <small class="error-message" id="passwordError">Password is required</small>
+			
+			
+            <div style="text-align: left;">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe">Remember Me</label>
+            </div>
+
+            
+            <div style="text-align: left;">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="terms.html">terms and conditions</a></label>
+            </div>
+            <small class="error-message" id="termsError">You must agree to the terms and conditions</small>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="footer">
+            <p><a href="forgot_password.html">Forgot your password?</a></p>
+            <p>Don't have an account? <a href="register.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const rememberMe = document.getElementById('rememberMe').checked;
+            const terms = document.getElementById('terms').checked;
+
+            if (!validateInputs(username, email, password, dob, gender, terms)) {
+                return;
+            }
+            
+            alert('Login successful!');
+
+            // Handle form data (e.g., send it to the server or log it in the console)
+            console.log('Username:', username.value);
+            console.log('Email:', email.value);
+
+            console.log('Remember Me:', rememberMe);
+
+            // Redirect to the home page after successful login
+            window.location.href = 'iwt.html';
+        });
+
+        function validateInputs(username, email, password,terms) {
+            let isValid = true;
+
+            if (username.value.trim() === '') {
+                showError(username, 'Username is required');
+                isValid = false;
+            } else {
+                showSuccess(username);
+            }
+
+            if (email.value.trim() === '' || !isValidEmail(email.value)) {
+                showError(email, 'Valid email is required');
+                isValid = false;
+            } else {
+                showSuccess(email);
+            }
+
+            if (password.value.trim() === '') {
+                showError(password, 'Password is required');
+                isValid = false;
+            } else if (password.value.length > 26) {
+                showError(password, 'Password must be 26 characters or fewer');
+                isValid = false;
+            } else if (!isStrongPassword(password.value)) {
+                showError(password, 'Password must be strong (include uppercase, lowercase, number, and special character)');
+                isValid = false;
+            } else {
+                showSuccess(password);
+            }
+
+            if (!terms) {
+                showError(document.getElementById('terms'), 'You must agree to the terms and conditions');
+                isValid = false;
+            } else {
+                hideError(document.getElementById('terms'));
+            }
+
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
+        }
+
+        function isStrongPassword(password) {
+            const strongPasswordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,26}$/;
+            return strongPasswordPattern.test(password);
+        }
+
+        function showError(input, message) {
+            const errorElement = input.nextElementSibling;
+            errorElement.innerText = message;
+            errorElement.style.display = 'block';
+            input.style.borderColor = 'red';
+
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+                input.style.borderColor = '#ddd';
+            }, 3000);
+        }
+
+        function showSuccess(input) {
+            const errorElement = input.nextElementSibling;
+            errorElement.innerText = '';
+            errorElement.style.display = 'none';
+            input.style.borderColor = 'green';
+        }
+
+        function hideError(input) {
+            const errorElement = input.nextElementSibling;
+            errorElement.innerText = '';
+            errorElement.style.display = 'none';
+            input.style.borderColor = '#ddd';
+        }
+    </script>
+</body>
+</html>

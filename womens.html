@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Crafts - Women's Collection</title>
+    <link rel="stylesheet" href="iwt.css">
+    <link rel="icon" href="altered_logo.png" type="image/png">
+	<style>
+	/* Basic Reset */
+body, h1, h2, h3, h4, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    width: 30px;
+    margin-right: 5px;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav ul li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.header .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Hero Section */
+#hero {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+#hero .hero-text h2 {
+    font-size: 30px;
+}
+
+#hero .hero-text p {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+#hero .hero-text .btn {
+    background: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Show the Dropdown Content on Hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Hover Effect for Dropdown Links */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Keep the Dropdown Button Highlighted when Dropdown is Open */
+.dropdown:hover .dropbtn {
+    background-color: #555;
+}
+
+/* Products Section */
+#products {
+    padding: 30px 0;
+}
+
+#products h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 5px;
+	justify-content: space-around;
+	margin-left: 90px;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+	justify-content: space-around;
+}
+
+.product h3 {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.product p {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.product .btn {
+    display: block;
+    margin: 10px auto;
+    background: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Features Section */
+#features {
+    padding: 50px 0;
+    background: #f9f9f9;
+}
+
+#features h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.feature h3 {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.feature p {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Testimonials Section */
+#testimonials {
+    padding: 50px 0;
+}
+
+#testimonials h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.testimonial {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial h4 {
+    font-weight: normal;
+    color: #e91e63;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+}
+
+.footer-column p,
+.footer-column ul {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer-column ul li {
+    list-style: none;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 12px;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="altered_logo.png" alt="HASTAKALA Logo">
+                <h1>HASTAKALA</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+					<li class="dropdown">
+						<a href="#products" class="dropbtn">Products</a>
+		
+					</li>
+					<li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#cart"><img src="https://static.vecteezy.com/system/resources/previews/027/381/351/original/shopping-cart-icon-shopping-trolley-icon-shopping-cart-logo-container-for-goods-and-products-economics-symbol-design-elements-basket-symbol-silhouette-retail-design-elements-vector.jpg" alt="Cart"></a></li>
+                    <li><a href="login.html">Login</a></li>
+                
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" style="background-image: url('data:image/jpeg;base64,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');">
+        <div class="hero-text">
+            <h2>Indian Crafts - Women's Collection</h2>
+            <p>Embrace the elegance of traditional Indian craftsmanship.</p>
+            <a href="#products" class="btn">Explore Now</a>
+        </div>
+    </section>
+
+    <section id="products" class="container">
+        <h2>Explore Our Women's Collection</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLizmSPtv_aNA2gpiqw5vRp-5JgG0LjtUu8ek9jEc3M2oU1_Qb" height="100px" alt="Silk Saree">
+                <h3>Handwoven Kanchipuram famous  Traditional Silk Saree</h3>
+                <p>Luxurious handwoven traditional silk saree with intricate designs.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwwBjC44GCrahApq7Vz3V84Vqf7N0YRG6HDA&s" alt="Temple Jewelry">
+                <h3>Traditional Temple Jewelry</h3>
+                <p>Exquisite temple jewelry set with gold plating.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkyHIkdW-N6ghHJX6LnM-LsIb0Ttw4CDAExw&s" alt="Banarasi Dupatta">
+                <h3>Handwoven Traditional Banarasi Silk Dupatta</h3>
+                <p>Elegant Banarasi silk dupatta with zari work.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdya3ED4yy3VTsoUyUt3xeiLBSKcWB9yI5Cg&s" alt="Meenakari Earrings">
+                <h3>Meenakari Earrings</h3>
+                <p>Colorful Meenakari earrings with enamel details.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeLqQYCXbYZkGLZgCm1oGLIGAt3cBrGjSrFw&s" alt="Phulkari Scarf">
+                <h3>Phulkari Embroidered Scarf</h3>
+                <p>Vibrant Phulkari embroidered scarf, perfect for any occasion.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQrciUJrwIQQWT6jLcjG9dTFQekoaLAHXCCw&s" alt="Chikankari Kurta">
+                <h3>Chikankari Kurta</h3>
+                <p>Elegant Chikankari kurta made with fine craftsmanship.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBSP-ny7fa72JHtYA_lBykPcgTLAVy_KGISg&s" alt="Kantha Quilt">
+                <h3>Kantha Tradtitional Stitch Quilt</h3>
+                <p>Handmade Kantha stitch quilt, perfect for your home.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9NERdWl3bht2vquaC39AzB4Eom_z9aTxlTg&s" alt="Kashmiri Shawl">
+                <h3>Kashmiri Traditional Pashmina Shawl</h3>
+                <p>Authentic Kashmiri Pashmina shawl, a timeless treasure.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+			<div class="product">
+                <img src="https://assets0.mirraw.com/images/12161295/image_zoom.jpeg?1704367344" alt="Kashmiri Shawl">
+                <h3>Pista velvet zarkan and handwork lehenga choli</h3>
+                <p>Authentic Kashmiri Pashmina lehenga, a timeless treasure.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    
+	<section id="testimonials" class="container">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>"The saree I bought is absolutely stunning. The quality and craftsmanship are exceptional."</p>
+                <h4>- Priya, Mumbai</h4>
+            </div>
+            <div class="testimonial">
+                <p>"I love the unique jewelry pieces. They add a perfect touch to my traditional outfits."</p>
+                <h4>- Anjali, Delhi</h4>
+            </div>
+            <div class="testimonial">
+                <p>"The customer service is fantastic. They helped me pick the perfect gift for my mother."</p>
+                <h4>- Radhika, Bangalore</h4>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>About HASTAKALA</h3>
+                    <p>HASTAKALA is dedicated to preserving and promoting the rich heritage of Indian crafts.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@hastakala.com</p>
+                    <p>Phone: 123-456-7890</p>
+                </div>
+            </div>
+            <p>&copy; 2024 HASTAKALA. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
