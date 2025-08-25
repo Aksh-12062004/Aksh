@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,34 +6,356 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HASTAKALA</title>
     <link rel="stylesheet" href="hastakala.css">
-    <link rel="icon" href="altered_logo.png" type="image/png">
+	<link rel="icon" href="altered_logo.png" type="image/png">
+<style>
+    /* Reset & Base */
+body, h1, h2, h3, h4, p, ul, li, a {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Small elements */
+.img {
+  border-radius: 2px;
+  padding: 2px;
+  width: 2px;
+}
+
+#profile {
+  height: 20px;
+  width: 20px;
+}
+
+header .logo img {
+  max-width: 45px;
+  margin-right: 1rem;
+}
+
+/* Container */
+.container {
+  width: 80%;   /* little wider for balance */
+  margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo h1 {
+  margin: 0;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin-left: 1rem;
+  position: relative;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #ff6f61;
+}
+
+header nav ul li a img {
+  max-width: 20px;
+}
+
+/* Dropdown container */
+.menu ul li {
+  position: relative;
+}
+
+/* Dropdown box (vertical list) */
+.menu ul li .drop {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: brown;
+  min-width: 180px;
+  border: 1px solid #ccc;
+  z-index: 999;
+  flex-direction: column;
+}
+
+/* Dropdown items vertically */
+.menu ul li .drop ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.menu ul li .drop ul li {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.menu ul li .drop ul li a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.menu ul li .drop ul li a:hover {
+  background: #8B4513;
+}
+
+/* Show dropdown on hover */
+.menu ul li.dropdown:hover .drop {
+  display: block;
+}
+
+.fas {
+  float: right;
+  margin-left: 10px;
+  padding-top: 3px;
+}
+
+/* Hero Section Styles */
+#hero {
+  background: url('https://img.freepik.com/premium-photo/top-view-rustic-wooden-table-with-various-crafting-supplies-tools-arranged-flat-lay_1209158-43079.jpg?size=626&ext=jpg&ga=GA1.1.1894328720.1722324293&semt=ais_hybrid') 
+              no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 5rem 1rem;
+  position: relative;
+}
+
+#hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+#hero .hero-text {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#hero .btn {
+  background-color: #ff6f61;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#hero .btn:hover {
+  background-color: #e65b54;
+}
+
+/* Products Section Styles */
+#products {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;   /* center products */
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.product {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  width: 220px;   /* slight increase for better alignment */
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px; /* adds spacing under image */
+}
+
+.product:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product .btn {
+  background-color: #ff6f61;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* About Section */
+#about {
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+/* Contact Section */
+#contact {
+  padding: 2rem 0;
+  text-align: center;   /* center the section heading */
+}
+
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: left;   /* keep form labels aligned left */
+}
+
+#contact form label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+#contact form input,
+#contact form textarea {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#contact form button {
+  background-color: #ff6f61;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center;   /* button aligned center */
+}
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: left;   /* better alignment for column text */
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  padding: 0 1rem;
+}
+
+.footer-column h3 {
+  margin-top: 0;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+footer p {
+  margin: 1rem 0 0;
+}
+
+</style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                
-                 <img src="altered_logo.png" alt="HASTAKALA Logo">
-                    <h1>HASTAKALA</h1>
+                <img src="altered_logo.png" alt="HASTAKALA Logo">
+                <h1>HASTAKALA</h1>
             </div>
-            <nav class="">
+            <nav class="menu">
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="index.html#home">Home</a></li>
                     <li class="dropdown"><a href="#">Products <i class="fas fa-caret-right"></i></a>
                         <div class="drop">
                             <ul>
-                                <li><a href="#">Women</a></li>
+                                <li><a href="women.html">Women</a></li>
                                 <li><a href="hastakalame.html">Men</a></li>
                                 <li><a href="homedecore.html">Home Decor</a></li>
                                 <li><a href="homeware.html">Kitchenware</a></li>
-                                <li><a href="#">Painting</a></li>
+                                <li><a href="painting.html">Painting</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#cart"><img src="https://static.vecteezy.com/system/resources/previews/027/381/351/original/shopping-cart-icon-shopping-trolley-icon-shopping-cart-logo-container-for-goods-and-products-economics-symbol-design-elements-basket-symbol-silhouette-retail-design-elements-vector.jpg" alt="Cart"></a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#cart"><img src="fcart.jpeg" alt="Cart" id="profile"></a></li>
                     <li><a href="login.html">Login</a></li>
+               
                 </ul>
             </nav>
         </div>
@@ -63,26 +386,26 @@
                 <h3></h3>
                 <p>Exclusive Ganjifa Art Painting - Gandaberunda, Medium</p>
             </div>
-            <div class="product">
+			<div class="product">
                 <img src="https://cdn.shopify.com/s/files/1/2675/7366/products/KashidaEmbroideredCushionCovers-Large_Setof2_-UM01C_360x.jpg?v=1586267648" height="200px" width="200px" alt="Product 3">
                 <h3></h3>
                 <p>Pattachitra Art Curio - Glass Bottle</p>
             </div>
-            <div class="product">
+			<div class="product">
                 <img src="https://theindiacrafthouse.com/cdn/shop/files/GPF01B-3_400x400.png?v=1710858418" height="200px" width="200px" alt="Product 3">
                 <h3></h3>
                 <p>Exclusive Ganjifa Art Painting - Gandaberunda, Medium</p>
             </div>
-            <div class="product">
+			<div class="product">
                 <img src="https://theindiacrafthouse.com/cdn/shop/products/Handwoven_20Elegance._20Exclusive_20Linen_20Jamdani_20Saree_20_20-_20Lime_20-_20SCN01B_202_400x400.jpg?v=1710522864" height="200px" width="200px" alt="Product 3">
                 <h3></h3>
                 <p>Handwoven Elegance. Exclusive Linen Jamdani Saree - Lime</p>
             </div>
-            <div class="product">
+			<div class="product">
                 <img src="https://theindiacrafthouse.com/cdn/shop/products/PattachitraArtCurio-Cow-APS10TB_400x400.gif?v=1584568842" height="200px" width="200px" alt="Product 3">
                 <p>Pattachitra Art Curio - Cow</p>
             </div>
-            <div class="product">
+			<div class="product">
                 <img src="https://theindiacrafthouse.com/cdn/shop/files/WhatsAppImage2024-01-17at8.42.20PM_400x400.jpg?v=1705510666" height="200px" width="200px" alt="Product 3">
                 <h3></h3>
                 <p>Wooden Jaali Desk Set (2 pc Set)</p>
@@ -112,7 +435,7 @@
     </section>
     <footer>
         <div class="container">
-            <div class="footer-columns">
+			<div class="footer-columns">
                 <div class="footer-column">
                     <h3>About HASTAKALA</h3>
                     <p>HASTAKALA is dedicated to promoting Indian handicrafts.</p>
@@ -125,8 +448,8 @@
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
-                </div>
-                 class="footer-column">
+                  </div>
+                <div class="footer-column">
                     <h3>Contact Us</h3>
                     <p>Email: info@hastakala.com</p>
                     <p>Phone: 123-456-7890</p>
