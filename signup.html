@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - HASTAKALA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .signup-container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .signup-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .signup-container input[type="text"], 
+        .signup-container input[type="email"], 
+        .signup-container input[type="password"], 
+        .signup-container input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .signup-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signup-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .signup-container p {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .signup-container a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 1024px) {
+            .product-grid {
+            grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+            }
+        }
+
+        @media (max-width: 640px) {
+            .product-grid {
+            grid-template-columns: 1fr; /* 1 per row on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>Signup for HASTAKALA</h2>
+        <form id="signupForm" onsubmit="return validateForm()">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name">
+            <span id="nameError" class="error"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+            <span id="emailError" class="error"></span>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+            <span id="passwordError" class="error"></span>
+
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" name="contact" placeholder="Enter your contact number">
+            <span id="contactError" class="error"></span>
+
+            <input type="submit" value="Sign Up">
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a>.</p>
+    </div>
+
+    <script>
+        function validateForm() {
+            var isValid = true;
+
+            // Get input fields
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var contact = document.getElementById("contact").value;
+
+            // Error spans
+            var nameError = document.getElementById("nameError");
+            var emailError = document.getElementById("emailError");
+            var passwordError = document.getElementById("passwordError");
+            var contactError = document.getElementById("contactError");
+
+            // Reset errors
+            nameError.innerHTML = "";
+            emailError.innerHTML = "";
+            passwordError.innerHTML = "";
+            contactError.innerHTML = "";
+
+            // Validate Name
+            if (name === "") {
+                nameError.innerHTML = "Name is required";
+                isValid = false;
+            }
+
+            // Validate Email
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email === "") {
+                emailError.innerHTML = "Email is required";
+                isValid = false;
+            } else if (!emailPattern.test(email)) {
+                emailError.innerHTML = "Invalid email format";
+                isValid = false;
+            }
+            // Validate Password
+            if (password === "") {
+                passwordError.innerHTML = "Password is required";
+                isValid = false;
+            } else if (password.length < 6) {
+                passwordError.innerHTML = "Password must be at least 6 characters long";
+                isValid = false;
+            }
+            // Validate Contact
+            var contactPattern = /^[0-9]{10}$/;
+            if (contact === "") {
+                contactError.innerHTML = "Contact number is required";
+                isValid = false;
+            } else if (!contactPattern.test(contact)) {
+                contactError.innerHTML = "Contact number must be 10 digits";
+                isValid = false;
+            }
+            return isValid;
+        }
+    </script>
+
+</body>
+</html>
