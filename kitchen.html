@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Crafts - Vesselware Collection</title>
+    <title>Indian Crafts - Homedecore Collection</title>
     <link rel="stylesheet" href="iwt.css">
     <link rel="icon" href="altered_logo.png" type="image/png">
 <style>
@@ -13,19 +13,14 @@ body, h1, h2, h3, h4, p, ul, li, a {
     padding: 0;
     font-family: 'Arial', sans-serif;
 }
-header .logo img {
-  max-width: 45px;
-  margin-right: 1rem;
-}
-.img{
-    border-radius: 2px;
-  padding: 2px;
-  width: 2px;
-}
 #profile
 {
     height:20px;
     width: 20px;
+}
+header .logo img {
+  max-width: 45px;
+  margin-right: 1rem;
 }
 
 /* Container */
@@ -82,6 +77,7 @@ header .logo img {
     width:150px;
     padding:10px;
 }
+
 /* Container */
 .container {
     width: 70%;
@@ -101,6 +97,102 @@ header {
 .header .logo img {
     width: 30px;
     margin-right: 5px;
+}
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    width: 30px;
+    margin-right: 5px;
+}
+header .logo img {
+  max-width: 45px;
+  margin-right: 1rem;
+}
+
+/* Container */
+.container {
+  width: 80%;   /* little wider for balance */
+  margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo h1 {
+  margin: 0;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin-left: 1rem;
+  position: relative;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #ff6f61;
+}
+
+header nav ul li a img {
+  max-width: 20px;
+}
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav ul li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.header .dropdown:hover .dropdown-content {
+    display: block;
 }
 
 header nav ul {
@@ -184,6 +276,40 @@ header nav ul li a {
     height: 300px;
     border-radius: 5px;
 }
+.product-grid {
+  display: flex;
+  justify-content: center;   /* center products */
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: stretch;  /* ensures equal height in a row */
+}
+
+.product {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  width: 220px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;   /* vertical stacking */
+  justify-content: space-between; /* ensures text and button stick to bottom */
+  min-height: 300px;  /* equal height */
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  flex-shrink: 0;  /* image stays fixed */
+}
+
+.product p {
+  flex-grow: 1;  /* allows text to expand but keeps buttons aligned */
+  margin-bottom: 10px;
+}
+
 .product .btn {
     display: block;
     margin: 10px auto;
@@ -193,6 +319,17 @@ header nav ul li a {
     text-align: center;
     border-radius: 5px;
     text-decoration: none;
+}
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
 }
 /* Features Section */
 #features {
@@ -303,7 +440,7 @@ footer p {
                     <li class="dropdown"><a href="#">Products <i class="fas fa-caret-right"></i></a>
                         <div class="drop">
                             <ul>
-                                <li><a href="women.html">Women</a></li>
+                                <li><a href="#">Women</a></li>
                                 <li><a href="hastakalame.html">Men</a></li>
                                 <li><a href="homedecore.html">Home Decor</a></li>
                                 <li><a href="homeware.html">Kitchenware</a></li>
@@ -313,76 +450,76 @@ footer p {
                     </li>
                     <li><a href="index.html#about">About</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="#cart"><img src="fcart.jpg" alt="Cart" id="profile"></a></li>
-                    <li><a href="#login">Login</a></li>
+                    <li><a href="#cart"><img src="fcart.jpeg" alt="Cart" id="profile"></a></li>
+                    <li><a href="login.html">Login</a></li>
                
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="hero" style="background-image: url('https://www.awesomecuisine.com/wp-content/uploads/2023/09/Traditional-Utensils-and-Cookware-in-Indian-Cooking.jpg');">
+    <section id="hero" style="background-image: url('https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/66979d3a7009230024be524e/whatsapp-image-2024-07-17-at-3-59-53-pm.jpeg');">
         <div class="hero-text">
-            <h2>Indian Crafts - Vesselware Collection</h2>
+            <h2>Indian Crafts - Homedecor Collection</h2>
             <p>Embrace the elegance of traditional Indian craftsmanship.</p>
             <a href="#products" class="btn">Explore Now</a>
         </div>
     </section>
     <section id="products" class="container">
-        <h2>Explore Our Vesselware Collection</h2>
+        <h2>Explore Our Homedecore Collection</h2>
         <div class="product-grid">
             <div class="product">
-                <img src="https://i.pinimg.com/550x/32/c1/5a/32c15ab2023e3758479180abe8fbc428.jpg" height="100px" alt="Sherwani">
-                <h3> copper utensil</h3>
-                <p></p>
+                <img src="https://m.media-amazon.com/images/I/91a4sutchOL._AC_UF894,1000_QL80_.jpg" height="100px" alt="Sherwani">
+                <h3> Dolls</h3>
+                <p>Musician Dolls Wall Hanging Metal Showpieces.</p>
                 <a href="#" class="btn">Buy Now</a>
             </div>
             <div class="product">
-                <img src="https://ik.imagekit.io/rr5kjhj9w/wp-content/uploads/2019/06/DEC-305-2L-Brass-Tiffin-Box-l-The-Past-Perfect-Collection-l-Singapore.jpg.webp" height="100px" width="50px" alt="decore">
-                <h3>Brass Tiffin Boxes</h3>
-                <p></p>
+                <img src="https://images.glowroad.com/faceview/g9h/i3j/bf/b5i/imgs/pd/1668275286746__BMXCV-xlgn400x400.jpg?productId=P-9268010" height="100px" width="50px" alt="decore">
+                <h3>wall hanging</h3>
+                <p>Handmade Traditional Gujrati Wall Hanging decor</p>
                 <a href="#" class="btn">Buy Now</a>
             </div>
             <div class="product">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifhOfKqwacOeh4OLHNZSMBQ_RJHpynDyAlbzmMeANjfsxPdmWhCLGPVnjcNcm-FHTHDbaTJCEXf9YAPidvWjTsOWSChSKqu0CpRE2cA379ZIHtev537FHNPHCiNDE1sQZq6_VVYWug0Hzp/s1600/traditional+vessel4.jpg" alt="Handmade Mens Mirror Work Chevron Kurta Pyjama">
-                <h3>paniyaram pan</h3>
-                <p></p>
+                <img src="https://img.freepik.com/premium-photo/mahi-home-decor-diwali-diyas-traditional-handmade-terracotta-clay-diya-mitti-deepak-diwali_1099388-11486.jpg" alt="Handmade Mens Mirror Work Chevron Kurta Pyjama">
+                <h3>diya</h3>
+                <p>erracotta Clay Diya Mitti Deepak for Diwali</p>
                 <a href="#" class="btn">Buy Now</a>
             </div>
             <div class="product">
-                <img src="https://i.etsystatic.com/26470112/r/il/500481/3373548286/il_570xN.3373548286_45h7.jpg" alt="Cotton dhoti">
-                <h3>Traditional clay pot</h3>
-                <p> </p>
+                <img src="https://5.imimg.com/data5/SELLER/Default/2022/3/SZ/PD/RA/4885898/marble-bottle-500x500.jpg" alt="Cotton dhoti">
+                <h3>Leather camel</h3>
+                <p>Brown Traditional Handmade Leather Camel </p>
                 <a href="#" class="btn">Buy Now</a>
             </div>
             <div class="product">
-                <img src="https://i.pinimg.com/originals/5d/1a/bd/5d1abda54ab54f6614ceb51615a949c8.jpg" alt="Maroon Dhupion Silk Traditional Wear Plain Dhoti Kurta">
-                <h3> Floral Soup Bowl</h3>
-                <p></p>
+                <img src="https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/1280x1280/products/52247/53813/91rbC%2BIZQRL._SL1500___48688.1602859087.jpg?c=1?imbypass=on" alt="Maroon Dhupion Silk Traditional Wear Plain Dhoti Kurta">
+                <h3> Buddha tree</h3>
+                <p>Mahalaxmi Art Handmade Buddha Tree</p>
                 <a href="#" class="btn">Buy Now</a>
             </div>
             <div class="product">
-                <img src="https://rukminim2.flixcart.com/image/850/1000/kqgyhe80/dinner-set/r/q/b/7-iav-kb-tw-119-indianartvilla-original-imag4gvz9hghhekd.jpeg?q=90&crop=false" alt="dhoti">
-                <h3>copper plates</h3>
-                <p></p>
+                <img src="https://rukminim2.flixcart.com/image/850/1000/koynr0w0/toran/q/d/v/nupur46-nuputudio-original-imag3arhqzx2pagz.jpeg?q=20&crop=false" alt="dhoti">
+                <h3>vinayagar leaf tree</h3>
+                <p>Golden Lord Vinayagar Leaf .</p>
                 <a href="#" class="btn">Buy Now</a>
             </div>
             <div class="product">
-                <img src="https://www.tredyfoods.com/cdn/shop/products/TraditionalGrindingStone_MediumAatukkal_TREDY1997_720x.jpg?v=1639548287" height="100px" alt="Kantha Quilt">
-                <h3>Grinding stone</h3>
-                <p></p>
+                <img src="https://i.etsystatic.com/27894885/r/il/ec3e18/3413918142/il_570xN.3413918142_nl07.jpg" height="100px" alt="Kantha Quilt">
+                <h3>light holder</h3>
+                <p>Metal Tea Light Holder</p>
                 <a href="#" class="btn">Buy Now</a>
             </div>
             <div class="product">
-                <img src="https://images.woodenstreet.de/image/cache/data%2Fnestroots%2FNew+Images+Feb+2023%2Fgrey-enamel-printed-wooden-masala-box%2Ffront-750x650.jpg" height="100px" alt="Kashmiri Shawl">
-                <h3>Anjarai petti</h3>
-                <p></p>
+                <img src="https://5.imimg.com/data5/ANDROID/Default/2021/5/TI/ME/VU/5020809/product-jpeg.jpg" height="100px" alt="Kashmiri Shawl">
+                <h3>clay pot</h3>
+                <p>Madhubani Painted Clay Pots .</p>
                 <a href="#" class="btn">Buy Now</a>
             </div>
 <div class="product">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLD-rIQHrGKKsG3HXce9g3z8mRU83HaKtHqw&s" height="100px" alt="Kashmiri Shawl">
-                <h3>Terracotta Plain Coffee Mug Curved</h3>
-                <p> </p>
+                <img src="https://5.imimg.com/data5/SELLER/Default/2022/3/GI/CA/YL/16004298/antique-wall-decor-wall-frame-500x500.jpeg" height="100px" alt="Kashmiri Shawl">
+                <h3>Culturam metal doll</h3>
+                <p>Culturam Metal Handicraft Antique </p>
                 <a href="#" class="btn">Buy Now</a>
             </div>
         </div>
@@ -391,7 +528,7 @@ footer p {
         <h2>What Our Customers Say</h2>
         <div class="testimonial-grid">
             <div class="testimonial">
-                <p>"The vessels I bought is absolutely stunning. The quality and craftsmanship are exceptional."</p>
+                <p>"The Dolls I bought is absolutely stunning. The quality and craftsmanship are exceptional."</p>
                 <h4>- Shiva, Mumbai</h4>
             </div>
             <div class="testimonial">
@@ -430,4 +567,4 @@ footer p {
         </div>
     </footer>
 </body>
-</html>
+</html> homedecore
