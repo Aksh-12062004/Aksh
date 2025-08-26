@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup - HASTAKALA</title>
+    <link rel="icon" href="altered_logo.png" type="image/png">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,6 +74,23 @@
             font-size: 0.9em;
             margin-bottom: 10px;
         }
+        nav {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav a:active,
+        nav a:hover {
+            color: #e65b54;  /* change this to your desired color */
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
         @media (max-width: 1024px) {
             .product-grid {
             grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
@@ -110,6 +128,9 @@
             <input type="submit" value="Sign Up">
         </form>
         <p>Already have an account? <a href="login.html">Login here</a>.</p>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
     </div>
 
     <script>
@@ -149,6 +170,7 @@
                 emailError.innerHTML = "Invalid email format";
                 isValid = false;
             }
+
             // Validate Password
             if (password === "") {
                 passwordError.innerHTML = "Password is required";
@@ -157,6 +179,7 @@
                 passwordError.innerHTML = "Password must be at least 6 characters long";
                 isValid = false;
             }
+
             // Validate Contact
             var contactPattern = /^[0-9]{10}$/;
             if (contact === "") {
@@ -166,6 +189,7 @@
                 contactError.innerHTML = "Contact number must be 10 digits";
                 isValid = false;
             }
+
             return isValid;
         }
     </script>
