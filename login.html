@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,6 +85,17 @@
             color: #ff6f61;
             text-decoration: none;
         }
+        @media (max-width: 1024px) {
+            .product-grid {
+            grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+            }
+        }
+
+        @media (max-width: 640px) {
+            .product-grid {
+            grid-template-columns: 1fr; /* 1 per row on mobile */
+            } 
+        }
     </style>
 </head>
 <body>
@@ -106,12 +117,6 @@
 			
 			
             <div style="text-align: left;">
-                <input type="checkbox" id="rememberMe" name="rememberMe">
-                <label for="rememberMe">Remember Me</label>
-            </div>
-
-            
-            <div style="text-align: left;">
                 <input type="checkbox" id="terms" name="terms" required>
                 <label for="terms">I agree to the <a href="terms.html">terms and conditions</a></label>
             </div>
@@ -122,7 +127,7 @@
 
         <div class="footer">
             <p><a href="forgot_password.html">Forgot your password?</a></p>
-            <p>Don't have an account? <a href="register.html">Sign up</a></p>
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
         </div>
     </div>
 
@@ -133,12 +138,11 @@
             const username = document.getElementById('username');
             const email = document.getElementById('email');
             const password = document.getElementById('password');
-            const rememberMe = document.getElementById('rememberMe').checked;
             const terms = document.getElementById('terms').checked;
 
             if (!validateInputs(username, email, password, dob, gender, terms)) {
                 return;
-            }
+            } 
             
             alert('Login successful!');
 
@@ -202,17 +206,7 @@
             return strongPasswordPattern.test(password);
         }
 
-        function showError(input, message) {
-            const errorElement = input.nextElementSibling;
-            errorElement.innerText = message;
-            errorElement.style.display = 'block';
-            input.style.borderColor = 'red';
-
-            setTimeout(() => {
-                errorElement.style.display = 'none';
-                input.style.borderColor = '#ddd';
-            }, 3000);
-        }
+        `
 
         function showSuccess(input) {
             const errorElement = input.nextElementSibling;
